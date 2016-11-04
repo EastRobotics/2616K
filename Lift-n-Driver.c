@@ -14,6 +14,10 @@
 #pragma platform(VEX2)
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
+#define FL motor[leftfront]
+#define FR motor[rightfront]
+#define BR motor[rightrear]
+#define BL motor[leftrear]
 
 task Drive() {
 	while(true) {
@@ -24,10 +28,14 @@ task Drive() {
 			motor[rightfront] = vexRT[Ch3] - vexRT[Ch1] - vexRT[Ch4];
 			motor[leftrear] = vexRT[Ch3] + vexRT[Ch1] - vexRT[Ch4];
 			motor[rightrear]= vexRT[Ch3] - vexRT[Ch1] + vexRT[Ch4];*/
-			motor[leftfront] = ;
-			motor[rightfront] = ;
-			motor[leftrear] = ;
-			motor[rightrear] = ;
+			FL = -(vexRT[Ch3] /* Y */ + vexRT[Ch4] /* X */) - vexRT[Ch1] /* R */;
+				/* FL = -(y + x) - r */
+			FR = -(-vexRT[Ch3 /* Y */ + vexRT[Ch4] /* X */) - vexRT[Ch1] /* R */;
+				/* FR = -(-y + x) - r */
+			BR = -(vexRT[Ch3] /* Y */ - vexRT[Ch4] /* X */) - vexRT[Ch1] /* R */;
+				/* BR = -(y + x) - r */
+			BL = -(vexRT[Ch3] /* Y */ - vexRT[Ch4] /* X */) - vexRT[Ch1] /* R */;
+				/* BL = -(y - x) - r */
 			break;
 		case 0:
 
@@ -76,7 +84,7 @@ task clawGrasp() {
 	while(true) {
 		switch(vexRT[Btn5U]) {
 		case 1:
-			motor[claw] = 63;
+			motor[claw] = 127;
 			while(vexRT[Btn5U]){
 
 			}
@@ -86,7 +94,7 @@ task clawGrasp() {
 
 		switch(vexRT[Btn5D]) {
 		case 1:
-			motor[claw] = -63;
+			motor[claw] = -127;
 			while(vexRT[Btn5D]){
 
 			}
