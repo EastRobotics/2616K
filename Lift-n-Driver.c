@@ -19,10 +19,15 @@ task Drive() {
 	while(true) {
 		switch(vexRT[Btn5U]) {
 		case 1:
+			/*
 			motor[leftfront] = vexRT[Ch3] + vexRT[Ch1] + vexRT[Ch4];
 			motor[rightfront] = vexRT[Ch3] - vexRT[Ch1] - vexRT[Ch4];
 			motor[leftrear] = vexRT[Ch3] + vexRT[Ch1] - vexRT[Ch4];
-			motor[rightrear]= vexRT[Ch3] - vexRT[Ch1] + vexRT[Ch4];
+			motor[rightrear]= vexRT[Ch3] - vexRT[Ch1] + vexRT[Ch4];*/
+			motor[leftfront] = ;
+			motor[rightfront] = ;
+			motor[leftrear] = ;
+			motor[rightrear] = ;
 			break;
 		case 0:
 
